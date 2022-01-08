@@ -1,29 +1,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    
+    
+    <script>
+        function computeLoan() 
+        {
+        var amount=document.getElementById('amount').Value;
+        var intrest_rate= document.getElementById('intrest').value;
+        var months= document.getElementById('months').value;
+        var intrest=(amount*(intrest_rate * 0.01)) / months;
+        var payment = ((amount / months) + intrest) .toFixed(2) ;
+        payment = payment.toString(). replace(/\B(?=(3))+(?!\d))/g, ",");
+        document.getElementById('payment').innerHTML = "Payment Amount :" + "777";
+        console.log(payment);
+        }
+    </script>
 </head>
 <body>
-    <header>
-        <h1>this is HEADER</h1>
+    <p>LOAN AMOUNT : $ </p><input id="amount" type="number" min="1" max="1000" onchange="computeLoan()">
+    <p>RATE % : <input id="intrest" type="number" min="1" max="10" step="0.1" onchange="computeLoan()"></p>
+    <p>MONTHS : <input id="months" type="number" min="1" max="100" step="1" onchange="computeLoan()"></p>
 
-    </header>
-    <div id="box-1">   
-
-    </div>
-
-    <div id="box-2">
-        hhiushius
-
-    </div>
-
-    <footer>
-        <h3>this is footer</h3>
-
-    </footer>
+    <h2 id="payment">Payment Amount:</h2>
+    
     
 </body>
 </html>
